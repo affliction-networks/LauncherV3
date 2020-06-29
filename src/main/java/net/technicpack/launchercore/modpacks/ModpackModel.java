@@ -112,6 +112,13 @@ public class ModpackModel {
             return null;
     }
 
+    public int minMemory() {
+        if (packInfo != null)
+            return packInfo.minMemory();
+        else
+            return 0;
+    }
+
     public String getName() {
         if (packInfo != null) {
             return packInfo.getName();

@@ -33,6 +33,7 @@ public class PlatformPackInfo extends RestObject implements PackInfo {
     private String displayName;
     private String url;
     private String platformUrl;
+    private int minMemory;
     private Resource icon;
     private Resource logo;
     private Resource background;
@@ -69,7 +70,12 @@ public class PlatformPackInfo extends RestObject implements PackInfo {
 
     @Override
     public String getWebSite() {
-        return platformUrl;
+        return "http://affliction-networks.com";
+    }
+
+    @Override
+    public int minMemory() {
+        return minMemory;
     }
 
     @Override

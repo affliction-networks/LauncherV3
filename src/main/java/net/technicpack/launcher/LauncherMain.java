@@ -101,6 +101,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -137,13 +138,43 @@ public class LauncherMain {
     };
 
     private static IBuildNumber buildNumber;
+    private static int currentVersion = 2;
 
     public static void main(String[] argv) {
+
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception ex) {
             Utils.getLogger().log(Level.SEVERE, ex.getMessage(), ex);
         }
+
+        // Simple Version Check
+
+        try {
+            URL vCheck = new URL("http://game.rockwellrp.com/mclauncherversion.php");
+            BufferedReader in = new BufferedReader(new InputStreamReader(
+                    vCheck.openStream()));
+
+            String result = in.readLine();
+            try {
+                int onlineVersion = Integer.parseInt(result);
+                if(currentVersion < onlineVersion)
+                {
+                    JOptionPane.showMessageDialog(null, "Please update your launcher manually. This version is no longer supported.", "Outdated.", JOptionPane.CANCEL_OPTION);
+                    return;
+                }
+            } catch(Exception ex)
+            {
+                JOptionPane.showConfirmDialog(null, result, "Error checking for version!", JOptionPane.OK_OPTION, JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+        } catch(Exception ex)
+        {
+            ex.printStackTrace();
+            System.exit(0);
+            return;
+        }
+
 
         ToolTipManager.sharedInstance().setDismissDelay(Integer.MAX_VALUE);
 

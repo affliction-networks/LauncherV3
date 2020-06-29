@@ -139,6 +139,7 @@ public class TechnicRelauncher extends Relauncher {
 
     @Override
     public void updateComplete() {
+        screen.setVisible(false);
         screen.dispose();
     }
 }

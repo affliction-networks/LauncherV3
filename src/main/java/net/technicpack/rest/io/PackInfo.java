@@ -68,5 +68,7 @@ public interface PackInfo {
 
     boolean isOfficial();
 
+    int minMemory();
+
     String getDiscordId();
 }

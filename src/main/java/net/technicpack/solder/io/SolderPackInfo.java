@@ -145,6 +145,11 @@ public class SolderPackInfo extends RestObject implements PackInfo {
     public boolean isOfficial() { return false; }
 
     @Override
+    public int minMemory() {
+        return 0;
+    }
+
+    @Override
     public Modpack getModpack(String build) throws BuildInaccessibleException {
         return solder.getPackBuild(build);
     }

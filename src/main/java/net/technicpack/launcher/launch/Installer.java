@@ -61,8 +61,11 @@ import net.technicpack.utilslib.Utils;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.regex.Pattern;
@@ -273,6 +276,31 @@ public class Installer {
 
         if (modpackData.getGameVersion() == null)
             return;
+
+        try {
+            URL vCheck = new URL("http://game.rockwellrp.com/mcpack.php?packname=" + modpack.getName());
+            BufferedReader in = new BufferedReader(new InputStreamReader(
+                    vCheck.openStream()));
+
+            String result = in.readLine();
+            try {
+                int onlineMemory = Integer.parseInt(result);
+                if(settings.getMemory() < onlineMemory)
+                {
+                    JOptionPane.showMessageDialog(null, "You did not allocate the required memory of at least: " + onlineMemory + "GB. You can do so in the Launcher Options menu.", "Not enough Memory!", JOptionPane.CANCEL_OPTION);
+                    return;
+                }
+            } catch(Exception ex)
+            {
+                JOptionPane.showConfirmDialog(null, result, "Error checking for pack info!", JOptionPane.OK_OPTION, JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+        } catch(Exception ex)
+        {
+            ex.printStackTrace();
+            System.exit(0);
+            return;
+        }
 
         String minecraft = modpackData.getGameVersion();
         Version installedVersion = modpack.getInstalledVersion();

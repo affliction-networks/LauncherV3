@@ -192,6 +192,11 @@ public class CombinedPackInfo implements PackInfo {
     }
 
     @Override
+    public int minMemory() {
+        return 0;
+    }
+
+    @Override
     public Modpack getModpack(String build) throws BuildInaccessibleException {
         if (solderPackInfo != null)
             return solderPackInfo.getModpack(build);

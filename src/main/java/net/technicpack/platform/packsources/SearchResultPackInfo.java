@@ -132,6 +132,11 @@ public class SearchResultPackInfo implements PackInfo {
     public boolean isOfficial() { return false; }
 
     @Override
+    public int minMemory() {
+        return 0;
+    }
+
+    @Override
     public boolean isLocal() {
         return false;
     }
