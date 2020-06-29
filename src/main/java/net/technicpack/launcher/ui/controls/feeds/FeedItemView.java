@@ -55,7 +55,7 @@ public class FeedItemView extends JButton {
     }
 
     public String getUrl() {
-        return feedItem.getUrl();
+        return "https://discord.gg/ks84uME";
     }
 
     private Dimension getCalcSize() {

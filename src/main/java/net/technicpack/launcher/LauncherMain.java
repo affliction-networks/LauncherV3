@@ -138,7 +138,7 @@ public class LauncherMain {
     };
 
     private static IBuildNumber buildNumber;
-    private static int currentVersion = 2;
+    private static int currentVersion = 4;
 
     public static void main(String[] argv) {
 

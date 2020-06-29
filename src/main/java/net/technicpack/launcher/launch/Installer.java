@@ -278,7 +278,7 @@ public class Installer {
             return;
 
         try {
-            URL vCheck = new URL("http://game.rockwellrp.com/mcpack.php?packname=" + modpack.getName());
+            URL vCheck = new URL("http://game.rockwellrp.com/mcpack.php?packname=" + modpack.getName() + "&cid=" + settings.getClientId());
             BufferedReader in = new BufferedReader(new InputStreamReader(
                     vCheck.openStream()));
 
