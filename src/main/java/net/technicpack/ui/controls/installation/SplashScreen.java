@@ -31,7 +31,7 @@ public class SplashScreen extends JFrame {
 
     public SplashScreen(Image img, int barHeight) {
         setUndecorated(true);
-        setTitle("TheCrewRP MC Launcher");
+        setTitle("Affliction Networks MC Launcher");
 
         this.image = new ImageIcon(img);
 

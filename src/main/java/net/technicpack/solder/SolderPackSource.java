@@ -58,7 +58,7 @@ public class SolderPackSource implements IPackSource {
 
         try {
             LinkedList<PackInfo> allPackApis = new LinkedList<PackInfo>();
-            String allPacksUrl = "https://game.rockwellrp.com/crewmodpacks.php";
+            String allPacksUrl = "https://game.rockwellrp.com/afflictionmodpacks.php";
 
             FullModpacks technic = RestObject.getRestObject(FullModpacks.class, allPacksUrl);
             for (PackInfo info : technic.getModpacks().values()) {

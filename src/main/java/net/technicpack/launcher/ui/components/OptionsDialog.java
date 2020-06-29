@@ -671,7 +671,7 @@ public class OptionsDialog extends LauncherDialog implements IRelocalizableResou
         JPanel about = new JPanel();
         about.setBackground(LauncherFrame.COLOR_CENTRAL_BACK_OPAQUE);
 
-        String linkText = "<a href=\"https://github.com/TechnicPack/\">"+resources.getString("launcheroptions.about.linktext")+"</a>";
+        String linkText = "<a href=\"https://github.com/affliction-networks/\">"+resources.getString("launcheroptions.about.linktext")+"</a>";
         String aboutText = "<html><head><link rel=\"stylesheet\" type=\"text/css\" href=\"https://www.technicpack.net/assets/css/launcher.css\" /></head><body style=\"font-family: "+resources.getFont(ResourceLoader.FONT_OPENSANS, 12).getFamily()+";color:#D0D0D0\">";
         aboutText += "<p>" + resources.getString("launcheroptions.about.copyright", buildNumber.getBuildNumber(), linkText) + "</p>";
         aboutText += "<p>" + resources.getString("launcheroptions.about.romainguy") + "</p>";
