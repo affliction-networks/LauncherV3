@@ -384,7 +384,7 @@ public class LauncherFrame extends DraggableFrame implements IRelocalizableResou
         headerLabel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DesktopUtils.browseUrl("https://www.affliction-networks.com/");
+                DesktopUtils.browseUrl("http://affliction-networks.com");
             }
         });
         header.add(headerLabel);

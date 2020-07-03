@@ -114,7 +114,7 @@ public class TechnicRelauncher extends Relauncher {
         screen.getProgressBar().setFont(resources.getFont(ResourceLoader.FONT_OPENSANS, 12));
         screen.pack();
         screen.setLocationRelativeTo(null);
-        screen.setVisible(true);
+        //screen.setVisible(true);
 
         InstallTasksQueue<Object> queue = new InstallTasksQueue<Object>(screen.getProgressBar(), createMirrorStore());
 

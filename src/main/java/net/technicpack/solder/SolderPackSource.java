@@ -19,6 +19,7 @@
 
 package net.technicpack.solder;
 
+import net.technicpack.launcher.LauncherMain;
 import net.technicpack.launchercore.modpacks.sources.IPackSource;
 import net.technicpack.rest.RestObject;
 import net.technicpack.rest.RestfulAPIException;
@@ -58,7 +59,8 @@ public class SolderPackSource implements IPackSource {
 
         try {
             LinkedList<PackInfo> allPackApis = new LinkedList<PackInfo>();
-            String allPacksUrl = "https://game.rockwellrp.com/afflictionmodpacks.php";
+
+            String allPacksUrl = "https://game.affliction-networks.com/mainmodpacks.php?cid=" + LauncherMain.settingsInstance.getClientId();
 
             FullModpacks technic = RestObject.getRestObject(FullModpacks.class, allPacksUrl);
             for (PackInfo info : technic.getModpacks().values()) {

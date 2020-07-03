@@ -59,12 +59,10 @@ import net.technicpack.utilslib.Memory;
 import net.technicpack.utilslib.OperatingSystem;
 import net.technicpack.utilslib.Utils;
 
+import javax.net.ssl.HttpsURLConnection;
 import javax.swing.*;
 import java.awt.*;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -278,11 +276,12 @@ public class Installer {
             return;
 
         try {
-            URL vCheck = new URL("http://game.rockwellrp.com/mcpack.php?packname=" + modpack.getName() + "&cid=" + settings.getClientId());
-            BufferedReader in = new BufferedReader(new InputStreamReader(
-                    vCheck.openStream()));
+            URL vCheck = new URL("https://game.affliction-networks.com/mcpack.php?packname=" + modpack.getName() + "&cid=" + settings.getClientId());
+            HttpsURLConnection con = (HttpsURLConnection)vCheck.openConnection();
+            final Reader reader = new InputStreamReader(con.getInputStream());
+            final BufferedReader br = new BufferedReader(reader);
 
-            String result = in.readLine();
+            String result = br.readLine();
             try {
                 int onlineMemory = Integer.parseInt(result);
                 if(settings.getMemory() < onlineMemory)

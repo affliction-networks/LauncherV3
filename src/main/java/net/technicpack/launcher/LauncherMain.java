@@ -138,10 +138,11 @@ public class LauncherMain {
     };
 
     private static IBuildNumber buildNumber;
-    private static int currentVersion = 4;
+    private static int currentVersion = 6;
+
+    public static TechnicSettings settingsInstance;
 
     public static void main(String[] argv) {
-
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception ex) {
@@ -151,11 +152,12 @@ public class LauncherMain {
         // Simple Version Check
 
         try {
-            URL vCheck = new URL("http://game.rockwellrp.com/mclauncherversion.php");
-            BufferedReader in = new BufferedReader(new InputStreamReader(
-                    vCheck.openStream()));
+            URL vCheck = new URL("https://game.affliction-networks.com/mainlauncherversion.php");
+            HttpsURLConnection con = (HttpsURLConnection)vCheck.openConnection();
+            final Reader reader = new InputStreamReader(con.getInputStream());
+            final BufferedReader br = new BufferedReader(reader);
+            String result = br.readLine();
 
-            String result = in.readLine();
             try {
                 int onlineVersion = Integer.parseInt(result);
                 if(currentVersion < onlineVersion)
@@ -192,6 +194,7 @@ public class LauncherMain {
 
         try {
             settings = SettingsFactory.buildSettingsObject(Relauncher.getRunningPath(LauncherMain.class), params.isMover());
+            settingsInstance = settings; // Just an easy way to get the settings globally.
         } catch (UnsupportedEncodingException ex) {
             ex.printStackTrace();
         }
@@ -300,7 +303,7 @@ public class LauncherMain {
         splash.getContentPane().setBackground(new Color (bg.getRed(),bg.getGreen(),bg.getBlue(),255));
         splash.pack();
         splash.setLocationRelativeTo(null);
-        splash.setVisible(true);
+        //splash.setVisible(true);
 
         // Inject new root certs for compatibility with older Java versions that don't have them
         injectNewRootCerts();
