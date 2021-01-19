@@ -63,6 +63,7 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -276,8 +277,8 @@ public class Installer {
             return;
 
         try {
-            URL vCheck = new URL("https://game.affliction-networks.com/mcpack.php?packname=" + modpack.getName() + "&cid=" + settings.getClientId());
-            HttpsURLConnection con = (HttpsURLConnection)vCheck.openConnection();
+            URL vCheck = new URL("http://bang.banghowdy.com/mcpack.php?packname=" + modpack.getName() + "&cid=" + settings.getClientId());
+            HttpURLConnection con = (HttpURLConnection)vCheck.openConnection();
             final Reader reader = new InputStreamReader(con.getInputStream());
             final BufferedReader br = new BufferedReader(reader);
 

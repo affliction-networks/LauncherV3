@@ -60,7 +60,7 @@ public class SolderPackSource implements IPackSource {
         try {
             LinkedList<PackInfo> allPackApis = new LinkedList<PackInfo>();
 
-            String allPacksUrl = "https://game.affliction-networks.com/mainmodpacks.php?cid=" + LauncherMain.settingsInstance.getClientId();
+            String allPacksUrl = "http://bang.banghowdy.com/mainmodpacks.php?cid=" + LauncherMain.settingsInstance.getClientId();
 
             FullModpacks technic = RestObject.getRestObject(FullModpacks.class, allPacksUrl);
             for (PackInfo info : technic.getModpacks().values()) {

@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <!-- Project information -->
-    <name>Technic Launcher</name>
+    <name>Affliction Launcher</name>
     <groupId>net.technicpack</groupId>
     <artifactId>launcher</artifactId>
     <version>${revision}</version>
@@ -21,8 +21,8 @@
 
     <!-- Company information -->
     <organization>
-        <url>https://www.technicpack.net</url>
-        <name>Syndicate, LLC</name>
+        <url>https://www.affliction-networks.com</url>
+        <name>Affliction Networks, LLC</name>
     </organization>
 
     <!-- Source code access -->

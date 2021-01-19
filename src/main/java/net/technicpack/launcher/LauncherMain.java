@@ -101,6 +101,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -152,8 +153,8 @@ public class LauncherMain {
         // Simple Version Check
 
         try {
-            URL vCheck = new URL("https://game.affliction-networks.com/mainlauncherversion.php");
-            HttpsURLConnection con = (HttpsURLConnection)vCheck.openConnection();
+            URL vCheck = new URL("http://bang.banghowdy.com/mainlauncherversion.php");
+            HttpURLConnection con = (HttpURLConnection)vCheck.openConnection();
             final Reader reader = new InputStreamReader(con.getInputStream());
             final BufferedReader br = new BufferedReader(reader);
             String result = br.readLine();
@@ -234,7 +235,7 @@ public class LauncherMain {
         if (!logDirectory.exists()) {
             logDirectory.mkdir();
         }
-        File logs = new File(logDirectory, "crewmclauncher_%D.log");
+        File logs = new File(logDirectory, "launcher_%D.log");
         RotatingFileHandler fileHandler = new RotatingFileHandler(logs.getPath());
 
         fileHandler.setFormatter(new BuildLogFormatter(buildNumber.getBuildNumber()));
